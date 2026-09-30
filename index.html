@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spätzle-Wert – Wie viele Spätzle bist du wert?</title>
+<style>
+:root{--bg:#fbf7ef;--card:#fff;--ink:#2a2118;--mute:#7a6c5a;--acc:#e0a526;--acc2:#b8741a;--line:#eadfca;--soft:#fff3d1;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17130e;--card:#221c14;--ink:#f6ecd9;--mute:#b3a48c;--line:#3a2f21;--soft:#2e2412}}
+:root[data-theme="dark"]{--bg:#17130e;--card:#221c14;--ink:#f6ecd9;--mute:#b3a48c;--line:#3a2f21;--soft:#2e2412}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{padding:56px 0 24px;text-align:center}
+.tag{display:inline-block;background:var(--soft);color:var(--acc2);font-size:13px;font-weight:600;padding:6px 14px;border-radius:99px;letter-spacing:.04em}
+h1{font-size:clamp(34px,7vw,64px);line-height:1.05;margin:18px 0 12px;letter-spacing:-.03em}
+h1 span{color:var(--acc)}
+.lead{color:var(--mute);max-width:520px;margin:0 auto;font-size:18px}
+.hero{max-width:420px;margin:28px auto 0}
+.hero svg{width:100%;height:auto}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:32px 0 64px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px}
+label{display:block;font-size:13px;font-weight:600;color:var(--mute);margin:0 0 6px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.f{margin-bottom:16px}.row .f{margin:0}
+input,select{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;outline:none}
+input:focus,select:focus{border-color:var(--acc);box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 25%,transparent)}
+button{width:100%;margin-top:6px;font:inherit;font-weight:700;font-size:17px;color:#2a2118;background:var(--acc);border:0;border-radius:14px;padding:15px;cursor:pointer;transition:transform .1s,background .2s}
+button:hover{background:#eab73c}button:active{transform:scale(.98)}
+.big{text-align:center;padding:12px 0 20px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.big small{color:var(--mute);font-size:14px}
+.num{font-size:clamp(44px,9vw,68px);font-weight:800;letter-spacing:-.03em;color:var(--acc2);line-height:1.1;margin:6px 0}
+.stats{display:grid;gap:12px}
+.stat{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.stat span{color:var(--mute);font-size:15px}.stat b{font-size:18px;text-align:right}
+.verdict{margin-top:18px;background:var(--soft);border-radius:14px;padding:14px 16px;font-size:15px}
+.empty{color:var(--mute);text-align:center;padding:40px 10px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:64px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{text-align:center;padding:8px}
+.step svg{width:72px;height:72px;margin-bottom:8px}
+.step h3{margin:0 0 4px;font-size:17px}.step p{margin:0;color:var(--mute);font-size:14px}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:0 0 40px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">DER SCHWÄBISCHE WERTRECHNER</span>
+  <h1>Wie viele <span>Spätzle</span><br>bist du wert?</h1>
+  <p class="lead">Gib deine Daten ein und finde heraus, wie viele handgeschabte Spätzle in dir stecken.</p>
+  <div class="hero">
+    <svg viewBox="0 0 400 260" aria-label="Schüssel voller Spätzle">
+      <ellipse cx="200" cy="236" rx="140" ry="14" fill="#000" opacity=".08"/>
+      <path d="M50 120h300c0 80-60 116-150 116S50 200 50 120z" fill="#c9553d"/>
+      <path d="M50 120h300c0 14-2 26-6 38H56c-4-12-6-24-6-38z" fill="#a8412d"/>
+      <g fill="none" stroke-linecap="round" stroke-width="15">
+        <path d="M70 118c20-52 50-70 72-56" stroke="#f2c14e"/>
+        <path d="M110 110c10-60 60-80 90-66" stroke="#e6b13c"/>
+        <path d="M170 104c18-56 70-66 92-40" stroke="#f5cd6a"/>
+        <path d="M230 108c16-50 66-56 86-24" stroke="#e6b13c"/>
+        <path d="M120 116c30-30 60-24 76-4" stroke="#f5cd6a"/>
+        <path d="M200 118c26-34 60-30 82-8" stroke="#f2c14e"/>
+        <path d="M280 116c14-24 30-30 44-24" stroke="#f5cd6a"/>
+      </g>
+      <g fill="#5d8c3a"><path d="M188 60c6-14 22-14 28-2-10 2-20 4-28 2z"/><path d="M228 52c8-12 22-10 26 2-10 0-18 2-26-2z"/></g>
+      <path d="M300 70c10-30 6-50-8-58M320 84c12-28 8-44-4-52" stroke="#bfb3a0" stroke-width="5" fill="none" stroke-linecap="round" opacity=".5"/>
+    </svg>
+  </div>
+</header>
+
+<main class="grid">
+  <section class="card">
+    <div class="row">
+      <div class="f"><label for="w">Gewicht (kg)</label><input id="w" type="number" inputmode="decimal" min="20" max="300" placeholder="75"></div>
+      <div class="f"><label for="h">Größe (cm)</label><input id="h" type="number" inputmode="numeric" min="100" max="250" placeholder="178"></div>
+    </div>
+    <div class="row">
+      <div class="f"><label for="a">Alter</label><input id="a" type="number" inputmode="numeric" min="10" max="110" placeholder="34"></div>
+      <div class="f"><label for="g">Geschlecht</label><select id="g"><option value="m">Männlich</option><option value="f">Weiblich</option><option value="d">Divers</option></select></div>
+    </div>
+    <div class="f"><label for="act">Aktivität</label>
+      <select id="act">
+        <option value="1.2">Sofa-Profi</option>
+        <option value="1.4" selected>Normal aktiv</option>
+        <option value="1.6">Sportlich</option>
+        <option value="1.8">Hochleistungs-Schaffer</option>
+      </select></div>
+    <button id="go">Spätzle berechnen</button>
+  </section>
+
+  <section class="card" id="out" aria-live="polite">
+    <div class="empty">🍽️<br>Trag deine Werte ein, dann siehst du hier dein Spätzle-Ergebnis.</div>
+  </section>
+</main>
+
+<section class="steps">
+  <div class="step">
+    <svg viewBox="0 0 72 72"><rect x="8" y="30" width="56" height="30" rx="8" fill="#f2c14e"/><rect x="8" y="24" width="56" height="10" rx="5" fill="#e0a526"/><circle cx="24" cy="46" r="4" fill="#fff" opacity=".6"/></svg>
+    <h3>1 Spätzle ≈ 6 g</h3><p>Handgeschabt, gekocht, aus gutem Eierteig.</p>
+  </div>
+  <div class="step">
+    <svg viewBox="0 0 72 72"><path d="M10 40c10-24 22-24 26-6s16 16 26-8" fill="none" stroke="#e0a526" stroke-width="10" stroke-linecap="round"/></svg>
+    <h3>ca. 5 cm lang</h3><p>Perfekt unperfekt – jeder ein Unikat.</p>
+  </div>
+  <div class="step">
+    <svg viewBox="0 0 72 72"><path d="M36 60S10 44 10 26a13 13 0 0 1 26-4 13 13 0 0 1 26 4c0 18-26 34-26 34z" fill="#c9553d"/></svg>
+    <h3>ca. 9 kcal</h3><p>Pro Stück – Käse und Röstzwiebeln nicht mitgerechnet.</p>
+  </div>
+</section>
+
+<footer>Augenzwinkernder Spaß, keine Ernährungsberatung. Gemacht mit Liebe und Ei. 🥚</footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const fmt=n=>Math.round(n).toLocaleString('de-DE');
+function calc(){
+  const w=+$('w').value,h=+$('h').value,a=+$('a').value,g=$('g').value,act=+$('act').value;
+  const out=$('out');
+  if(!w||w<20||w>300){out.innerHTML='<div class="empty">Bitte gib ein gültiges Körpergewicht ein. 🙂</div>';return}
+  const G=6, KCAL=9, CM=5, PORTION=300;
+  const bySpaetzle=w*1000/G;
+  const hh=h||170, aa=a||30;
+  const s=g==='m'?5:g==='f'?-161:-78;
+  const bmr=10*w+6.25*hh-5*aa+s;
+  const tdee=bmr*act;
+  const daily=tdee/KCAL;
+  const portions=w*1000/PORTION;
+  const lenKm=bySpaetzle*CM/100000;
+  const bmi=w/Math.pow(hh/100,2);
+  let v;
+  if(bySpaetzle<8000)v='Leicht und bekömmlich – wie ein zarter Pfannen-Spätzle.';
+  else if(bySpaetzle<13000)v='Solide Schwaben-Größe. Ein ordentlicher Kessel Teig.';
+  else v='Ein wahres Spätzle-Schwergewicht. Da steckt Substanz drin!';
+  out.innerHTML=`
+    <div class="big"><small>Du bist wert</small>
+      <div class="num">${fmt(bySpaetzle)}</div>
+      <small>Spätzle</small></div>
+    <div class="stats">
+      <div class="stat"><span>Portionen Käsespätzle (300 g)</span><b>${fmt(portions)}</b></div>
+      <div class="stat"><span>Aneinandergelegt</span><b>${lenKm.toLocaleString('de-DE',{maximumFractionDigits:1})} km</b></div>
+      <div class="stat"><span>Tagesbedarf in Spätzle</span><b>${fmt(daily)} / Tag</b></div>
+      <div class="stat"><span>Grundumsatz in Spätzle</span><b>${fmt(bmr/KCAL)} / Tag</b></div>
+      <div class="stat"><span>BMI</span><b>${bmi.toFixed(1).replace('.',',')}</b></div>
+    </div>
+    <div class="verdict">🥨 ${v}</div>`;
+}
+$('go').addEventListener('click',calc);
+document.querySelectorAll('input,select').forEach(e=>e.addEventListener('keydown',ev=>{if(ev.key==='Enter')calc()}));
+</script>
+</body>
+</html>
